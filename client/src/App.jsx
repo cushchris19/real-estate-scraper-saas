@@ -227,7 +227,12 @@ function ScraperApp() {
         </button>
       </form>
 
-      {error && <div className="error">{error}</div>}
+      {error && (
+        <div className="error">
+          <p><strong>Error:</strong> {error}</p>
+          <p><small>Backend URL: {import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000'}</small></p>
+        </div>
+      )}
 
       {results.length > 0 && (
         <>
