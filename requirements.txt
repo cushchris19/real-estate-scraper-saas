@@ -1,0 +1,9 @@
+homeharvest
+pandas
+openpyxl
+flask
+flask-cors
+homeharvest
+pandas
+openpyxl
+gunicorn
