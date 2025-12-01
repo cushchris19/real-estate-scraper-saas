@@ -9,11 +9,16 @@ def scrape_leads(location, listing_type="for_sale", past_days=30, min_price=None
     """
     print(f"Scraping {listing_type} properties in {location} from the last {past_days} days...")
     
-    properties = scrape_property(
-        location=location,
-        listing_type=listing_type,
-        past_days=past_days,
-    )
+    try:
+        properties = scrape_property(
+            location=location,
+            listing_type=listing_type,
+            past_days=past_days,
+        )
+    except Exception as e:
+        print(f"Error during scraping: {e}")
+        # Return empty DataFrame on error
+        return pd.DataFrame()
     
     if properties is not None and not properties.empty:
         print(f"Original count: {len(properties)}")
